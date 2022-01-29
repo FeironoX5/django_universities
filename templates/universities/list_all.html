@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список университетов</title>
+    <style>
+        * {
+            font-family: Arial, serif;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        body {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        .card {
+            margin: 13px 13px 0 0;
+            background: #f8f8f8;
+            padding: 20px 30px 90px 20px;
+            border-radius: 10px;
+            position: relative;
+            max-width: 40vw;
+            vertical-align: top;
+            flex: border-box;
+            display: flex;
+        }
+
+        .card h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .card p {
+            margin-bottom: 3px;
+        }
+
+        .card button {
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for link in links_list %}
+        <div class="card">
+            <div style="width: 100%;">
+                <h4>{{ link.olymp.name }}</h4>
+                {% for link2 in link.univer.all %}
+                    1
+                {% endfor %}
+                <p>{{ link.olymp.description }}</p>
+                <div style="position: absolute; bottom: 15px;">
+                    <button style="background: linear-gradient(45deg, #41e71c, #0de338); font-weight: bold">{{ link.olymp.rating }}</button>
+                    <button style="background: linear-gradient(45deg, #000000, #232323);">{{ link.olymp.subject }}</button>
+                    <a href="{{ link.olymp.url }}" target="_blank">
+                        <button style="background: #1234ce">Перейти на сайт</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

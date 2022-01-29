@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список олимпиад</title>
+    <style>
+        * {
+            font-family: Arial, serif;
+            margin: 0;
+        }
+
+        body {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        .card {
+            margin: 13px 13px 0 0;
+            background: #f8f8f8;
+            padding: 20px 30px 20px 20px;
+            border-radius: 10px;
+            max-width: 40vw;
+            vertical-align: top;
+            flex: border-box;
+            flex: border-box;
+            display: flex;
+        }
+
+        .card h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            margin-bottom: 3px;
+        }
+
+        .card button {
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 6px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1><a style="text-decoration: none; color: #9a9a9a;" href="/universities">Университеты</a> Олимпиады</h1>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for olympiad in olympiads_list %}
+        <div class="card">
+            <div style="width: 100%">
+                <h4>{{ olympiad.name }}</h4>
+                <p>{{ olympiad.description }}</p>
+                <button style=" background: linear-gradient(45deg, #41e71c, #0de338); font-weight: bold">{{ olympiad.rating }}</button>
+                <button style=" background: linear-gradient(45deg, #000000, #0a0a0a);">{{ olympiad.subject }}</button>
+                {% for univer in olympiad.universities.all %}
+                    <a href="{{ univer.get }}">
+                        <button style="color: #000; background: linear-gradient(45deg, #e0e0e0, #e1e1e1);">{{ univer.short_name }}</button>
+                    </a>
+                {% endfor %}
+                <a href="{{ olympiad.url }}" target="_blank" style="">
+                    <button style="background: #000000; color: #fff; width: 100%; border-radius: 4px;margin-top: 8px;">
+                        Перейти на сайт
+                    </button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Университет</title>
+    <style>
+        * {
+            font-family: Arial, serif;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        body {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+        button {
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<a style="text-decoration: none; color: #9a9a9a;" href="/universities" onclick="window.history.back()">Назад</a>
+<h1>{{ univer.short_name }}</h1>
+<h3 style="width: 70%; color: #313131">{{ univer.full_name }}</h3>
+<p style="margin-top: 7px">{{ univer.address }}</p>
+<p style="margin-top: 2px">{{ univer.phone }}</p>
+<a href="{{ univer.url }}" target="_blank">
+    <button style="background: #000;">Перейти на сайт</button>
+</a></body>
+</html>

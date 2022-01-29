@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список университетов</title>
+    <style>
+        * {
+            font-family: Arial, serif;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        body {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        .card {
+            margin: 13px 13px 0 0;
+            background: #f8f8f8;
+            padding: 20px 30px 20px 20px;
+            border-radius: 10px;
+            max-width: 40vw;
+            vertical-align: top;
+            flex: border-box;
+            display: flex;
+        }
+
+        .card h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .card p {
+            margin-bottom: 3px;
+        }
+
+        .card button {
+            color: #ffffff;
+            border: none;
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+<h1>Университеты <a style="text-decoration: none; color: #9a9a9a;" href="/olymps">Олимпиады</a></h1>
+<div style="display: flex; flex-wrap: wrap;">
+    {% for university in universities_list %}
+        <a style="text-decoration: none; color: #000" href="{{ university.get }}">
+
+            <div class="card">
+                <div style="width: 100%">
+                    <h4>{{ university.short_name }}</h4>
+                    <p>{{ university.phone }}</p>
+                    <p>{{ university.address }}</p>
+                    <a href="{{ university.url }}" target="_blank">
+                        <button style="background: #000; width: 100%">Перейти на сайт</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+
+    {% endfor %}
+</div>
+</body>
+</html>
